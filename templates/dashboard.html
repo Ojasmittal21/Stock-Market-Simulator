@@ -1,0 +1,140 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body class="dark light">
+    <div class="sidebar">
+        <h3>Welcome (username)</h3>
+        <p>Here's your stock portfolio overview</p>
+        <br><br><br><br>
+        <p>Dashboard</p>
+        <br>
+        <p>Portfolio</p>
+        <br>
+        <p>Buy</p>
+        <br>
+        <p>Sell</p>
+        <br><br>
+    </div>
+    <button id="mode">Change mode</button>
+    <script src="JSscript.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Stock Market Simulator</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- Applied before paint so the page doesn't flash the wrong theme on load -->
+    <script>
+        (function(){
+            var saved = localStorage.getItem("theme");
+            if(saved === "light"){
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        })();
+    </script>
+</head>
+<body class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="sidebar__brand">
+            <span class="brand__mark">▲</span>
+            Stock Market Simulator
+        </div>
+
+        <div class="sidebar__user">
+            <h3>Welcome, <span id="username">Trader</span></h3>
+            <p>Here's your portfolio overview</p>
+        </div>
+
+        <nav class="sidebar__nav">
+            <a href="/dashboard" class="nav-link is-active">Dashboard</a>
+            <a href="/portfolio-page" class="nav-link">Portfolio</a>
+        </nav>
+
+        <div class="sidebar__spacer"></div>
+
+        <button id="logoutBtn" class="nav-link nav-link--logout" type="button">Log Out</button>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="search">
+                <svg class="search__icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/>
+                    <line x1="13.4" y1="13.4" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <input type="text" id="stockSearch" placeholder="Search stocks — e.g. AAPL, Tesla..." autocomplete="off">
+            </div>
+
+            <div class="topbar__actions">
+
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+                    <span class="theme-toggle__icon">🌙</span>
+                </button>
+
+                <a href="/profile" class="profile-btn" aria-label="View your profile">
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <circle cx="10" cy="7" r="3.2" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M3.8 16.2c1.1-2.9 3.6-4.4 6.2-4.4s5.1 1.5 6.2 4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                </a>
+
+            </div>
+
+        </header>
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <span class="stat-card__label">Available Balance</span>
+                <span class="stat-card__value" id="statBalance">—</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-card__label">Holdings Value</span>
+                <span class="stat-card__value" id="statHoldings">—</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-card__label">Total Portfolio Value</span>
+                <span class="stat-card__value" id="statTotal">—</span>
+            </div>
+
+        </section>
+
+        <section class="stocks">
+
+            <h2>Popular Stocks</h2>
+
+            <div class="stock-grid" id="stockGrid">
+                <!-- cards injected by dashboardJS.js from /dashboard-data -->
+            </div>
+
+            <p class="stocks__empty" id="stocksLoading">Loading popular stocks…</p>
+            <p class="stocks__empty" id="stocksEmpty" hidden>No stocks match your search.</p>
+
+        </section>
+
+    </main>
+
+<script src="{{ url_for('static', filename='dashboardJS.js') }}"></script>
+
+</body>
+</html>

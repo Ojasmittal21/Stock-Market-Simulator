@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- FIX: url_for tells Flask to look in static/ folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="market-bg" aria-hidden="true"></div>
+
+    <div class="box">
+
+        <div class="box__content">
+
+            <span class="eyebrow">New Account</span>
+            <h1>Welcome!</h1>
+            <p class="subtitle">Sign up to get started on your trading journey</p>
+
+            <form id="registerForm" novalidate>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" minlength="6" required>
+                    <span class="field-hint">Use 6+ characters</span>
+                </div>
+
+                <button type="submit" class="submit">
+                    <span>Sign Up</span>
+                </button>
+
+                <!-- FIX: /login not logIn.html -->
+                <p class="signup-hint">Already have an account? <a href="/login" class="link">Log in</a></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FIX: url_for tells Flask to look in static/ folder -->
+<script src="{{ url_for('static', filename='JSscript.js') }}"></script>
+
+</body>
+</html>

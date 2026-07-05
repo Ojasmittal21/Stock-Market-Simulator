@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Simulator</title>
+    <!-- FIX: url_for tells Flask to look in static/ folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="page page--home">
+
+    <div class="market-bg" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <span class="brand">
+            <span class="brand__mark">▲</span>
+            Stock Market Simulator
+        </span>
+
+        <div class="ticker ticker--nav" aria-hidden="true">
+            <div class="ticker__track">
+                <span class="ticker__item">AAPL <em class="up">▲ 1.24%</em></span>
+                <span class="ticker__item">TSLA <em class="down">▼ 0.82%</em></span>
+                <span class="ticker__item">NVDA <em class="up">▲ 3.41%</em></span>
+                <span class="ticker__item">GOOGL <em class="up">▲ 0.53%</em></span>
+                <span class="ticker__item">AMZN <em class="down">▼ 0.19%</em></span>
+                <span class="ticker__item">MSFT <em class="up">▲ 0.87%</em></span>
+                <span class="ticker__item">AAPL <em class="up">▲ 1.24%</em></span>
+                <span class="ticker__item">TSLA <em class="down">▼ 0.82%</em></span>
+                <span class="ticker__item">NVDA <em class="up">▲ 3.41%</em></span>
+                <span class="ticker__item">GOOGL <em class="up">▲ 0.53%</em></span>
+                <span class="ticker__item">AMZN <em class="down">▼ 0.19%</em></span>
+                <span class="ticker__item">MSFT <em class="up">▲ 0.87%</em></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero">
+
+        <div class="hero__copy">
+            <span class="eyebrow">Practice Trading, Zero Risk</span>
+            <h1>Welcome to Stock Market Simulator</h1>
+            <p class="subtitle">
+                Trade real market data with simulated cash. Build a portfolio, test a strategy,
+                and see how it plays out — no brokerage account, no real money, no downside
+                except the lesson.
+            </p>
+
+            <div class="hero__actions">
+                <!-- FIX: /register and /login not .html filenames -->
+                <a href="/register" class="btn btn--solid">Sign Up</a>
+                <a href="/login" class="btn btn--ghost">Log In</a>
+            </div>
+
+            <p class="hero__note">First time here? Creating an account takes less than a minute.</p>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+            <div class="hero__stat">
+                <span class="hero__stat-label">Simulated Portfolio</span>
+                <span class="hero__stat-value">$128,430.55</span>
+                <span class="hero__stat-change up">▲ 12.4% this month</span>
+            </div>
+
+            <svg class="hero__chart" viewBox="0 0 400 160" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--mint-400)" stop-opacity="0.35" />
+                        <stop offset="100%" stop-color="var(--mint-400)" stop-opacity="0" />
+                    </linearGradient>
+                </defs>
+                <path class="hero__chart-fill"
+                      d="M0,120 C30,124 45,108 70,110 C100,112 110,86 140,90
+                         C170,94 180,66 210,64 C240,62 250,84 280,74
+                         C310,64 320,36 350,32 C370,29 385,24 400,18
+                         L400,160 L0,160 Z" />
+                <path class="hero__chart-line"
+                      d="M0,120 C30,124 45,108 70,110 C100,112 110,86 140,90
+                         C170,94 180,66 210,64 C240,62 250,84 280,74
+                         C310,64 320,36 350,32 C370,29 385,24 400,18" />
+                <circle class="hero__chart-dot" cx="400" cy="18" r="4" />
+            </svg>
+        </div>
+
+    </main>
+
+    <section class="features">
+
+        <div class="feature">
+            <span class="feature__icon">◐</span>
+            <h3>Real-time data</h3>
+            <p>Prices are pulled from live market feeds, so every trade reflects what the actual market is doing right now.</p>
+        </div>
+
+        <div class="feature">
+            <span class="feature__icon">◑</span>
+            <h3>Zero real risk</h3>
+            <p>You're trading simulated cash. Test an aggressive strategy or a cautious one — either way, nothing but time is on the line.</p>
+        </div>
+
+        <div class="feature">
+            <span class="feature__icon">◒</span>
+            <h3>Track your progress</h3>
+            <p>Watch your portfolio's gains and losses build over time, and see exactly which trades moved the needle.</p>
+        </div>
+
+    </section>
+
+    <footer class="site-footer">
+        <p>Simulated trading only. No real money is invested or at risk.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

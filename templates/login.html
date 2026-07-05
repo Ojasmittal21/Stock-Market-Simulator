@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Simulator</title>
+    <!-- FIX: url_for tells Flask to look in static/ folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="market-bg" aria-hidden="true"></div>
+
+    <div class="box">
+
+        <div class="box__content">
+
+            <span class="eyebrow">Trading Desk</span>
+            <h1>Welcome back!</h1>
+            <p class="subtitle">Sign in to continue your trading journey</p>
+
+            <form id="loginForm" novalidate>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="field field--row">
+                    <label class="checkbox" for="remember">
+                        <input type="checkbox" id="remember">
+                        <span class="checkbox__box"></span>
+                        Remember me
+                    </label>
+                    <a href="/forgot-password" class="link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="submit">
+                    <span>Log In</span>
+                </button>
+
+                <p class="signup-hint">New here? <a href="/register" class="link">Create an account</a></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='JSscript.js') }}"></script>
+
+</body>
+</html>
