@@ -1,0 +1,7 @@
+flask
+flask-sqlalchemy
+werkzeug
+yfinance
+pandas
+scikit-learn
+gunicorn
